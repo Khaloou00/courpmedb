@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary - Deep professional blue */
+    --primary: 220 70% 35%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary - Warm gold accent */
+    --secondary: 40 80% 55%;
+    --secondary-foreground: 220 25% 15%;
+    
+    /* Background - Clean light with warmth */
+    --background: 220 20% 98%;
+    --foreground: 220 25% 15%;
+    
+    /* Card surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 15%;
+    
+    /* Muted elements */
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 15% 45%;
+    
+    /* Accent - Teal for highlights */
+    --accent: 180 45% 45%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Status colors */
+    --success: 150 60% 40%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 35 90% 55%;
+    --warning-foreground: 35 90% 15%;
+    
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* UI elements */
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 220 70% 35%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 15%;
+    
+    --radius: 0.75rem;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 70% 35%) 0%, hsl(220 60% 25%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(40 80% 55%) 0%, hsl(35 85% 50%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 70% 30%) 0%, hsl(220 65% 20%) 50%, hsl(220 60% 15%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 20% 97%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(180 45% 45%) 0%, hsl(200 50% 40%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px hsla(220, 25%, 15%, 0.05);
+    --shadow-md: 0 4px 6px -1px hsla(220, 25%, 15%, 0.08), 0 2px 4px -2px hsla(220, 25%, 15%, 0.05);
+    --shadow-lg: 0 10px 15px -3px hsla(220, 25%, 15%, 0.1), 0 4px 6px -4px hsla(220, 25%, 15%, 0.05);
+    --shadow-xl: 0 20px 25px -5px hsla(220, 25%, 15%, 0.12), 0 8px 10px -6px hsla(220, 25%, 15%, 0.08);
+    --shadow-glow: 0 0 40px hsla(220, 70%, 35%, 0.15);
+    --shadow-gold: 0 0 30px hsla(40, 80%, 55%, 0.2);
+    
+    /* Sidebar - Professional */
+    --sidebar-background: 220 25% 12%;
+    --sidebar-foreground: 220 15% 90%;
+    --sidebar-primary: 40 80% 55%;
+    --sidebar-primary-foreground: 220 25% 12%;
+    --sidebar-accent: 220 20% 18%;
+    --sidebar-accent-foreground: 220 15% 90%;
+    --sidebar-border: 220 20% 20%;
+    --sidebar-ring: 40 80% 55%;
+  }
+
+  .dark {
+    --primary: 220 60% 60%;
+    --primary-foreground: 220 25% 10%;
+    
+    --secondary: 40 70% 60%;
+    --secondary-foreground: 220 25% 10%;
+    
+    --background: 220 25% 8%;
+    --foreground: 220 15% 92%;
+    
+    --card: 220 20% 12%;
+    --card-foreground: 220 15% 92%;
+    
+    --muted: 220 20% 16%;
+    --muted-foreground: 220 15% 60%;
+    
+    --accent: 180 50% 50%;
+    --accent-foreground: 220 25% 10%;
+    
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 220 60% 60%;
+    
+    --popover: 220 20% 12%;
+    --popover-foreground: 220 15% 92%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, .heading {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+  
+  .text-gradient-secondary {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-secondary);
+  }
+  
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .bg-gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+  
+  .glass {
+    @apply backdrop-blur-md bg-white/80 border border-white/20;
+  }
+  
+  .chapter-card {
+    @apply relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-all duration-300;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .chapter-card:hover {
+    @apply border-primary/30;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+  
+  .progress-indicator {
+    @apply h-1 rounded-full bg-muted overflow-hidden;
+  }
+  
+  .progress-indicator-fill {
+    @apply h-full rounded-full transition-all duration-500;
+    background: var(--gradient-secondary);
+  }
+  
+  .quiz-option {
+    @apply relative p-4 rounded-lg border-2 border-border bg-card cursor-pointer transition-all duration-200;
+  }
+  
+  .quiz-option:hover {
+    @apply border-primary/50 bg-primary/5;
+  }
+  
+  .quiz-option.selected {
+    @apply border-primary bg-primary/10;
+  }
+  
+  .quiz-option.correct {
+    @apply border-success bg-success/10;
+  }
+  
+  .quiz-option.incorrect {
+    @apply border-destructive bg-destructive/10;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+  
+  .animation-delay-100 {
+    animation-delay: 0.1s;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+  
+  .animation-delay-300 {
+    animation-delay: 0.3s;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
